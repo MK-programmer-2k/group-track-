@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GroupTrack</string>
+    <string name="error_boundary_title">Something went wrong</string>
+    <string name="error_boundary_description">An unexpected error occurred in the application. Don\'t worry, your group settings and location sharing preferences are safe.</string>
+    <string name="error_boundary_retry">Try Again</string>
+    <string name="error_boundary_home">Return to Home</string>
+    <string name="error_boundary_restart">Restart App</string>
+    <string name="error_boundary_details">Error Details</string>
+    <string name="error_boundary_copy">Copy Error Details</string>
+    <string name="error_boundary_copied">Error details copied to clipboard</string>
+    <string name="title_group_chat">Group Chat</string>
+    <string name="chat_offline_mode">Offline Mode</string>
+    <string name="chat_type_message">Type a message…</string>
+    <string name="chat_share_location">Share My Location</string>
+</resources>

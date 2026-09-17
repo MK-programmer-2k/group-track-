@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center group beacon / pin icon inside 66dp safe zone (21dp to 87dp) -->
+    <!-- Location Pin body -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M54,26 C43.5,26 35,34.5 35,45 C35,58 54,78 54,78 C54,78 73,58 73,45 C73,34.5 64.5,26 54,26 Z" />
+    <!-- Pin center dot -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M54,45m-7,0a7,7 0 1,1 14,0a7,7 0 1,1 -14,0" />
+    <!-- Pulse live dot -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M54,45m-3.5,0a3.5,3.5 0 1,1 7,0a3.5,3.5 0 1,1 -7,0" />
+    <!-- Group member pins left and right -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M31,44 C26.5,44 23,47.5 23,52 C23,58.5 31,68 31,68 C31,68 39,58.5 39,52 C39,47.5 35.5,44 31,44 Z" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M77,44 C72.5,44 69,47.5 69,52 C69,58.5 77,68 77,68 C77,68 85,58.5 85,52 C85,47.5 81.5,44 77,44 Z" />
+</vector>

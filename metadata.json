@@ -1,0 +1,6 @@
+{
+  "name": "GroupTrack",
+  "description": "Consent-based group live-location sharing application with background tracking, real-time group map, offline/online group chat, and privacy controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

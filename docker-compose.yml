@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgis/postgis:15-3.3
+    container_name: grouptrack-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-grouptrack_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-grouptrack_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-grouptrack_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-grouptrack_user} -d ${POSTGRES_DB:-grouptrack_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: grouptrack-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: grouptrack-backend
+    restart: always
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: ${POSTGRES_USER:-grouptrack_user}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-grouptrack_secure_pass}
+      DATABASE_NAME: ${POSTGRES_DB:-grouptrack_db}
+      JWT_SECRET: ${JWT_SECRET:-super_secret_jwt_key_grouptrack_2026}
+      JWT_EXPIRES_IN: 7d
+      LOCATION_RETENTION_DAYS: 30
+      CORS_ORIGIN: "*"
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
